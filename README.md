@@ -1,4 +1,4 @@
-<img width="624" height="384" alt="ecommerce" src="https://github.com/user-attachments/assets/f8e526ca-1954-43ae-b062-3ecba0d572d1" />
+<img width="1838" height="1773" alt="ecommerce" src="https://github.com/user-attachments/assets/238e90d2-0e8b-4f3e-ac57-5ded7c630509" />
 
 # 🛒 Trolley - Platform E-commerce Marketplace
 
