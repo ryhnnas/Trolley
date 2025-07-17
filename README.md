@@ -87,6 +87,7 @@ npm install express mysql2 cors dotenv bcrypt jsonwebtoken multer socket.io pg
 # 5. Jalankan server backend
 npm start
 # Server akan berjalan di http://localhost:5000
+```
 
 ### 2. Frontend Setup
 ```bash
@@ -105,3 +106,4 @@ npm install axios react-router-dom react-hot-toast react-icons socket.io-client 
 # 4. Jalankan aplikasi React
 npm run dev
 # Aplikasi akan berjalan di http://localhost:5173 (atau port lain)
+```
