@@ -1,0 +1,100 @@
+.chat-page-container {
+    max-width: 800px;
+    height: 80vh;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--card-bg-color);
+}
+
+.chat-header {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.chat-back-btn {
+    background: #e9ecef;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+[data-theme='dark'] .chat-header {
+    background-color: #2d3748;
+}
+[data-theme='dark'] .chat-back-btn {
+    background-color: #4a5568;
+    color: var(--text-color);
+}
+
+.message-list {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.message-bubble {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    line-height: 1.5;
+}
+
+.message-bubble.sent {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.message-bubble.received {
+    background-color: #e9ecef;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+[data-theme='dark'] .message-bubble.received {
+    background-color: #4a5568;
+    color: var(--text-color);
+}
+
+.message-form {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+.message-form input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    padding: 12px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+.message-form button {
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}

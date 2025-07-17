@@ -1,0 +1,236 @@
+.become-seller-container {
+    text-align: center;
+    padding: 80px 40px;
+    background: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.become-seller-container .logo {
+    font-size: 50px;
+    color: #00A3A3;
+}
+
+.become-seller-container h2 {
+    font-size: 28px;
+}
+
+.become-seller-container .action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.open-store-btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    background-color: #00A3A3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.open-store-btn:hover {
+    background-color: #007a7a;
+    transform: translateY(-2px);
+}
+
+.cancel-btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.seller-dashboard h1 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-left: 5px solid;
+}
+
+.stat-card .value {
+    font-size: 32px;
+    font-weight: bold;
+    color: #00A3A3;
+}
+
+.stat-card .label {
+    color: #6c757d;
+}
+
+.product-management-section .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.order-management-section {
+    margin-top: 40px;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.order-table th, .order-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.order-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.order-table td {
+    vertical-align: middle;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    text-transform: capitalize;
+}
+
+.status-completed { 
+    background-color: #28a745; 
+}
+.status-shipped { 
+    background-color: #17a2b8; 
+}
+.status-processing { 
+    background-color: #ffc107; 
+    color: #333;
+}
+.status-cancelled { 
+    background-color: #dc3545; 
+}
+.status-pending { 
+    background-color: #6c757d; 
+}
+
+.status-select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.product-table th, .product-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.product-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #666;
+}
+
+.product-table td {
+    vertical-align: middle;
+}
+
+.product-info-cell {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.product-table-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.status-badge.status-active {
+    background-color: #28a745;
+}
+
+.status-badge.status-inactive {
+    background-color: #6c757d;
+}
+
+.product-table .action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.product-table .action-buttons button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-table .edit-btn {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.product-table .delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.store-info-header {
+    background-color: var(--card-bg-color);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--primary-color, #00A3A3);
+}
+
+.store-info-header h1 {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+.store-info-header p {
+    font-size: 16px;
+    color: var(--text-color-secondary);
+    margin-bottom: 0;
+}

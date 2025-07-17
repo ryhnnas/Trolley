@@ -1,0 +1,272 @@
+.account-management-page {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.account-section {
+    background: var(--card-bg-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 15px;
+}
+
+.section-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.add-btn {
+    background-color: #00A3A3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.add-btn:hover {
+    background-color: #007a7a;
+    transform: translateY(-2px);
+}
+
+.cancel-btn {
+    padding: 10px 20px;
+    border: 1px solid #6c757d;
+    background-color: transparent;
+    color: #6c757d;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.cancel-btn:hover {
+    background-color: #c2c1c1;
+    transform: translateY(-2px);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.payment-card {
+    height: 200px;
+    border-radius: 15px;
+    padding: 25px;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(45deg, #3a506b, #1c2541);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+.payment-card:hover {
+    transform: scale(1.03);
+}
+
+.payment-card.primary {
+    box-shadow: 0 0 0 3px #007bff;
+}
+
+.card-top, .card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-chip {
+    width: 50px;
+}
+
+.card-network-logo {
+    font-size: 40px;
+}
+
+.card-number {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.cardholder-name, .card-expiry {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.card-actions {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 5px;
+}
+
+.card-actions button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.card-actions button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.card-actions button:hover {
+    background: #dc3545;
+}
+
+.address-card {
+    background: var(--card-bg-color);
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+.address-card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+.address-card.primary {
+    border-left: 5px solid #00A3A3;
+}
+
+.address-card-actions {
+    margin-top: 20px;
+    display: flex; 
+    align-items: center; 
+    gap: 15px;
+}
+
+.set-primary-btn {
+    padding: 8px 15px;
+    border: 1px solid #00A3A3;
+    background-color: transparent;
+    color: #00A3A3;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.set-primary-btn:hover {
+    background-color: #00A3A3;
+    color: white;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: scaleUp 0.3s ease-out;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.icon-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 5px;
+}
+
+.icon-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #888;
+    padding: 8px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.icon-actions button:hover {
+    background-color: #f0f2f5;
+}
+
+.icon-actions button.edit-btn:hover {
+    color: #00A3A3;
+}
+
+.icon-actions button.delete-btn:hover {
+    color: #dc3545;
+}

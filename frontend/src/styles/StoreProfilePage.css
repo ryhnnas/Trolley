@@ -1,0 +1,74 @@
+.store-profile-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.page-message { 
+    text-align: center; 
+    font-size: 20px;
+    padding: 50px; 
+}
+
+.store-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: var(--card-bg-color);
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.store-avatar {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: #00A3A3;
+}
+
+.store-info h1 {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+}
+
+.store-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    color: var(--text-color-secondary);
+}
+
+.store-meta .rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    color: #f8b400;
+}
+
+.store-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color-secondary);
+}
+
+.store-products-section h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}

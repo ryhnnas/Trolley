@@ -1,0 +1,137 @@
+.cart-icon-container {
+  position: relative;
+  color: #66D2CE;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: #FFFFFF;
+  color: #66D2CE;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: bold;
+  border: 1px solid #66D2CE;
+}
+
+.header-container {
+  background-color: white;
+  padding: 15px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 30px rgba(68, 231, 240, 0.701);
+  border-radius: 50px;
+  margin: 10px 2%;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #00A3A3;
+}
+
+.header-logo svg {
+  margin-right: 10px;
+}
+
+.search-bar {
+  display: flex;
+  flex-grow: 1;
+  margin: 0 40px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid #B2E0E0;
+  border-radius: 50px 0 0 50px;
+  outline: none;
+}
+
+.search-bar button {
+  padding: 0 25px;
+  border: none;
+  background-color: #00A3A3;
+  color: white;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.search-bar button svg {
+  margin-right: 5px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.login-button {
+  padding: 12px 30px;
+  background-color: #00A3A3;
+  color: white;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.header-icon {
+  font-size: 28px;
+  color: #66D2CE;
+  cursor: pointer;
+}
+
+.chat-icon-container {
+  position: relative;
+  color: #555;
+}
+
+.profile-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-popup {
+  position: absolute;
+  top: 100%;
+  right: -50px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #f0f0f0;
+}
+
+.popup-item {
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  color: #333;
+  font-size: 15px;
+}
+
+.popup-item:hover {
+  background-color: #f5f5f5;
+}
+
+.popup-item.logout {
+  cursor: pointer;
+  color: #dc3545;
+}
