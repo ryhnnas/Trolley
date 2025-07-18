@@ -75,7 +75,7 @@ const ProductCard = ({ product }) => {
         return <div className="product-card-rating no-rating">Belum ada ulasan</div>;
     };
 
-    const imageUrl = product.image_url ? `http://localhost:5000/${product.image_url.replace(/\\/g, '/')}` : 'https://via.placeholder.com/200';
+    const imageUrl = `${import.meta.env.VITE_BACKEND_URL}/${product.image_url?.replace(/\\/g, '/')}`;
     
     return (
         <Link to={`/product/${product.id}`} className="product-card-link">
