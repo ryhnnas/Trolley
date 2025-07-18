@@ -70,9 +70,9 @@ exports.updateOrderStatus = async (req, res) => {
 
     try {
         const hasAccess = await orderModel.verifyOrderAccess(orderId, userId, role);
-        // if (!hasAccess) {
-        //     return res.status(403).json({ message: "Akses ditolak." });
-        // }
+        if (!hasAccess) {
+            return res.status(403).json({ message: "Akses ditolak." });
+        }
 
         await orderModel.updateStatus(orderId, status);
         res.json({ message: `Status pesanan berhasil diubah.` });
