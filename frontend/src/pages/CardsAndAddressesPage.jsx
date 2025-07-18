@@ -45,7 +45,7 @@ const AddressModal = ({ show, onClose, address, onSave }) => {
             <div className="modal-content" onClick={e => e.stopPropagation()}>
                 <h2>{address ? 'Edit Alamat' : 'Tambah Alamat Baru'}</h2>
                 <form onSubmit={handleSubmit}>
-                    <div className="form-group"><label>Label Alamat</label><input type="text" name="label" value={formData.label || ''} onChange={handleChange} required /></div>
+                    <div className="form-group"><label>Label Alamat(Rumah/Kantor)</label><input type="text" name="label" value={formData.label || ''} onChange={handleChange} required /></div>
                     <div className="form-group"><label>Nama Penerima</label><input type="text" name="recipient_name" value={formData.recipient_name || ''} onChange={handleChange} required /></div>
                     <div className="form-group"><label>Nomor Telepon</label><input type="text" name="phone_number" value={formData.phone_number || ''} onChange={handleChange} required /></div>
                     <div className="form-group"><label>Alamat Lengkap</label><textarea name="full_address" rows="3" style={{width: '100%'}} value={formData.full_address || ''} onChange={handleChange} required></textarea></div>
