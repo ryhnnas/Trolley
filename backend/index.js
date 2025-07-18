@@ -11,14 +11,15 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const server = http.createServer(app);
 
-const io = new Server(server, {
-  cors: {
-    origin: "https://trolley-five.vercel.app",
-  }
-});
 app.use(cors({
   origin: "https://trolley-five.vercel.app"
 }));
+
+const io = new Server(server, {
+  cors: {
+    origin: "https://trolley-five.vercel.app", 
+  }
+});
 
 app.use(express.json());
 app.use('/public', express.static(path.join(__dirname, 'public')));
