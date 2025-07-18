@@ -68,8 +68,22 @@ exports.updateOrderStatus = async (req, res) => {
     const { status } = req.body;
     const { id: userId, role } = req.user;
 
+    // --- MULAI DEBUG ---
+    console.log("==============================================");
+    console.log("MEMULAI PROSES UPDATE STATUS");
+    console.log(`Data dari Token (JWT): ID Pengguna = ${userId} (Tipe: ${typeof userId}), Peran = ${role}`);
+    console.log(`Data dari URL: Order ID = ${orderId} (Tipe: ${typeof orderId})`);
+    console.log(`Status Baru yang Diminta: ${status}`);
+    // --- SELESAI DEBUG ---
+
     try {
         const hasAccess = await orderModel.verifyOrderAccess(orderId, userId, role);
+
+        // --- MULAI DEBUG ---
+        console.log(`Hasil Pengecekan Akses (verifyOrderAccess): ${hasAccess}`);
+        console.log("==============================================");
+        // --- SELESAI DEBUG ---
+
         if (!hasAccess) {
             return res.status(403).json({ message: "Akses ditolak." });
         }
