@@ -68,26 +68,21 @@ exports.updateOrderStatus = async (req, res) => {
     const { status } = req.body;
     const { id: userId, role } = req.user;
 
-    // --- MULAI DEBUG ---
-    console.log("==============================================");
-    console.log("MEMULAI PROSES UPDATE STATUS");
-    console.log(`Data dari Token (JWT): ID Pengguna = ${userId} (Tipe: ${typeof userId}), Peran = ${role}`);
-    console.log(`Data dari URL: Order ID = ${orderId} (Tipe: ${typeof orderId})`);
-    console.log(`Status Baru yang Diminta: ${status}`);
-    // --- SELESAI DEBUG ---
-
     try {
-        const hasAccess = await orderModel.verifyOrderAccess(orderId, userId, role);
-
-        // --- MULAI DEBUG ---
-        console.log(`Hasil Pengecekan Akses (verifyOrderAccess): ${hasAccess}`);
-        console.log("==============================================");
-        // --- SELESAI DEBUG ---
-
-        if (!hasAccess) {
-            return res.status(403).json({ message: "Akses ditolak." });
+        const order = await orderModel.findOrderById(orderId);
+        if (!order) {
+            return res.status(404).json({ message: "Pesanan tidak ditemukan." });
         }
-
+        if (status === 'Completed' || status === 'Cancelled') {
+            if (order.buyer_id != userId) {
+                return res.status(403).json({ message: "Hanya pembeli yang bisa menyelesaikan atau membatalkan pesanan ini." });
+            }
+        } else if (status === 'Shipped') {
+            const hasAccess = await orderModel.verifyOrderAccess(orderId, userId, 'seller');
+            if (!hasAccess) {
+                return res.status(403).json({ message: "Hanya penjual yang bisa mengirim pesanan ini." });
+            }
+        }
         await orderModel.updateStatus(orderId, status);
         res.json({ message: `Status pesanan berhasil diubah.` });
 
