@@ -12,33 +12,14 @@ const app = express();
 const server = http.createServer(app);
 const PORT = process.env.PORT || 5000;
 
-// --- KONFIGURASI CORS TERPUSAT ---
-const allowedOrigins = [
-    'https://trolley-five.vercel.app',
-    'http://localhost:5173',
-];
+app.use(cors());
 
-const corsOptions = {
-    origin: (origin, callback) => {
-        // Izinkan jika origin ada di daftar atau jika tidak ada origin (seperti dari Postman)
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization'], 
-};
-
-// Terapkan CORS ke Express
-app.use(cors(corsOptions));
-
-// Terapkan CORS ke Socket.IO
 const io = new Server(server, {
-    cors: corsOptions
+    cors: {
+        origin: "https://trolley-five.vercel.app",
+        methods: ["GET", "POST"]
+    }
 });
-// ------------------------------------
 
 // Middleware lain
 app.use(express.json());
