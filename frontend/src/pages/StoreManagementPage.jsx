@@ -102,7 +102,7 @@ const SellerDashboardPage = () => {
     };
 
     const handleStatusChange = async (orderId, newStatus) => {
-        const promise = axios.patch(`http://localhost:5000/api/orders/${orderId}/status`, { status: newStatus }, config);
+        const promise = api.patch(`http://localhost:5000/api/orders/${orderId}/status`, { status: newStatus }, config);
     
         toast.promise(promise, {
             loading: 'Mengubah status...',
