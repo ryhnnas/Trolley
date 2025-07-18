@@ -73,7 +73,7 @@ exports.verifyOrderAccess = async (orderId, userId, role) => {
 
     if (role === 'buyer') {
         query = 'SELECT id FROM orders WHERE id = ? AND buyer_id = ?';
-    } else { 
+    } else { // Asumsi role adalah 'seller'
         query = `
             SELECT o.id FROM orders o
             JOIN order_items oi ON o.id = oi.order_id
