@@ -87,7 +87,7 @@ const Homepage = () => {
             </div>
 
             <section className="homepage-banner">
-                <img src="/images/banner-promo.jpg" alt="Promotional Banner" />
+                <img src={`${import.meta.env.VITE_BACKEND_URL}/images/banner-promo.jpg`} alt="Promotional Banner" />
             </section>
 
             <section className="trending-section">
