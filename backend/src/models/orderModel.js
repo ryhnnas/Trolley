@@ -69,11 +69,10 @@ exports.findOrderById = async (orderId) => {
 
 exports.verifyOrderAccess = async (orderId, userId, role) => {
     let query;
-    let params = [orderId, userId];
 
     if (role === 'buyer') {
         query = 'SELECT id FROM orders WHERE id = ? AND buyer_id = ?';
-    } else { // Asumsi role adalah 'seller'
+    } else { 
         query = `
             SELECT o.id FROM orders o
             JOIN order_items oi ON o.id = oi.order_id
@@ -82,6 +81,6 @@ exports.verifyOrderAccess = async (orderId, userId, role) => {
             LIMIT 1
         `;
     }
-    const [rows] = await db.query(query, params);
+    const [rows] = await db.query(query, [orderId, userId]);
     return rows.length > 0;
 };
