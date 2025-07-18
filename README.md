@@ -107,3 +107,8 @@ npm install axios react-router-dom react-hot-toast react-icons socket.io-client 
 npm run dev
 # Aplikasi akan berjalan di http://localhost:5173 (atau port lain)
 ```
+
+### Akun yang tersedia dalam database
+- email: Penjual1@gmail.com password: penjual1
+- email: Penjual2@gmail.com password: penjual2
+- email: Pembeli1@gmail.com password: Pembeli1
