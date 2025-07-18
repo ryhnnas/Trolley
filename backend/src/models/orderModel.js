@@ -66,3 +66,22 @@ exports.findOrderById = async (orderId) => {
     const [rows] = await db.query('SELECT * FROM orders WHERE id = ?', [orderId]);
     return rows[0];
 };
+
+exports.verifyOrderAccess = async (orderId, userId, role) => {
+    let query;
+    let params = [orderId, userId];
+
+    if (role === 'buyer') {
+        query = 'SELECT id FROM orders WHERE id = ? AND buyer_id = ?';
+    } else { 
+        query = `
+            SELECT o.id FROM orders o
+            JOIN order_items oi ON o.id = oi.order_id
+            JOIN stores s ON oi.store_id = s.id
+            WHERE o.id = ? AND s.user_id = ?
+            LIMIT 1
+        `;
+    }
+    const [rows] = await db.query(query, params);
+    return rows.length > 0;
+};
