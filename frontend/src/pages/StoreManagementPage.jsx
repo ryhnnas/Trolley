@@ -102,17 +102,23 @@ const SellerDashboardPage = () => {
     };
 
     const handleStatusChange = async (orderId, newStatus) => {
-        const promise = api.patch(`/orders/${orderId}/status`, { status: newStatus }, config);
-
+        const promise = axios.patch(`http://localhost:5000/api/orders/${orderId}/status`, { status: newStatus }, config);
+    
         toast.promise(promise, {
             loading: 'Mengubah status...',
             success: 'Status berhasil diubah!',
             error: 'Gagal mengubah status.',
         });
-
-        promise.then(() => {
-            fetchSellerData();
-        });
+        try {
+            await promise;
+            setOrders(currentOrders => 
+                currentOrders.map(order => 
+                    order.order_id === orderId ? { ...order, status: newStatus } : order
+                )
+            );
+        } catch (error) {
+            console.error("Gagal mengubah status:", error);
+        }
     };
 
     if (loading) return <p>Memuat dashboard toko...</p>;
