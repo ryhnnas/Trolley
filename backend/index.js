@@ -13,10 +13,13 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: "https://trolley-five.vercel.app",
   }
 });
-app.use(cors());
+app.use(cors({
+  origin: "https://trolley-five.vercel.app"
+}));
+
 app.use(express.json());
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
