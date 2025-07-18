@@ -66,34 +66,17 @@ exports.getSellerStoreOrders = async (req, res) => {
 exports.updateOrderStatus = async (req, res) => {
     const { orderId } = req.params;
     const { status } = req.body;
-    const validStatuses = ['Processing', 'Shipped', 'Completed', 'Cancelled'];
-    if (!validStatuses.includes(status)) {
-        return res.status(400).json({ message: "Status tidak valid." });
-    }
-    try {
-        if (req.user.role === 'buyer') {
-            if (status !== 'Completed' && status !== 'Cancelled') {
-                return res.status(403).json({ message: "Pembeli hanya bisa membatalkan atau menyelesaikan pesanan." });
-            }
-            const order = await orderModel.findOrderById(orderId);
-            if (!order || order.buyer_id != req.user.id) { 
-                return res.status(403).json({ message: "Akses ditolak." });
-            }
-        }
-        else if (req.user.role === 'seller') {
-          const store = await storeModel.findStoreByUserId(req.user.id);
-          if (!store) {
-              return res.status(403).json({ message: "Anda tidak memiliki toko." });
-          }
-          const ordersInStore = await orderModel.findOrdersByStoreId(store.id);
-          const orderToUpdate = ordersInStore.find(order => order.order_id == orderId);
+    const { id: userId, role } = req.user;
 
-          if (!orderToUpdate) {
-              return res.status(403).json({ message: "Akses ditolak. Pesanan ini bukan milik toko Anda." });
-          }
+    try {
+        const hasAccess = await orderModel.verifyOrderAccess(orderId, userId, role);
+        if (!hasAccess) {
+            return res.status(403).json({ message: "Akses ditolak." });
         }
+
         await orderModel.updateStatus(orderId, status);
         res.json({ message: `Status pesanan berhasil diubah.` });
+
     } catch (error) {
         res.status(500).json({ message: "Error server", error: error.message });
     }
